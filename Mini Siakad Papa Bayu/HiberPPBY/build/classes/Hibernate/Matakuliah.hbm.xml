@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 23, 2016 2:43:19 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Matakuliah" table="matakuliah" schema="public" optimistic-lock="version">
+        <id name="kodemk" type="string">
+            <column name="kodemk" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="namamk" type="string">
+            <column name="namamk" not-null="true" />
+        </property>
+        <property name="sks" type="string">
+            <column name="sks" />
+        </property>
+    </class>
+</hibernate-mapping>
