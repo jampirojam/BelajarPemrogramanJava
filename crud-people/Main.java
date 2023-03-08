@@ -7,6 +7,7 @@ import java.util.Scanner;
 import static data.PeopleData.addPeopleData;
 import static data.PeopleData.deletePeopleData;
 import static data.PeopleData.getPeopleData;
+import static data.PeopleData.searchPeopleByName;
 import static data.PeopleData.updatePeopleDataByName;
 
 public class Main {
@@ -21,12 +22,14 @@ public class Main {
         int age;
         String status;
         boolean married;
+        String search;
 
         System.out.println("CRUD MENU");
-        System.out.println("1. Get Data");
-        System.out.println("2. Update Data");
+        System.out.println("1. Get All Data");
+        System.out.println("2. Update Data By Name");
         System.out.println("3. Add Data");
-        System.out.println("4. Delete Data");
+        System.out.println("4. Delete Data By Name");
+        System.out.println("5. Search Data");
         System.out.println("");
         System.out.print("Choose: ");
         int choice = scanner.nextInt();
@@ -72,6 +75,18 @@ public class Main {
             System.out.print("Input name that want to delete: ");
             name = scanner.next();
             List<People> list = deletePeopleData(finalPeopleList, name);
+            System.out.println();
+            System.out.println("===============");
+            System.out.println("===============");
+            System.out.println();
+            menu(list);
+        } else if (choice == 5) {
+            List<People> finalPeopleList = getPeopleData(peopleList);
+            System.out.println("SEARCH DATA");
+            System.out.println("");
+            System.out.print("Search something: ");
+            search = scanner.next();
+            List<People> list = searchPeopleByName(finalPeopleList, search);
             System.out.println();
             System.out.println("===============");
             System.out.println("===============");
