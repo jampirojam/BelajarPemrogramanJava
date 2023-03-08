@@ -29,6 +29,7 @@ public class PeopleData {
             int age = people.getAge();
             boolean married = people.isMarried();
 
+            System.out.println("===============");
             number += 1;
             System.out.format("%d. %s, %d, %b %n", number, name, age, married);
         }
@@ -67,10 +68,12 @@ public class PeopleData {
             int age = peopleDetail.getAge();
             boolean married = peopleDetail.isMarried();
 
+            System.out.println("===============");
             number += 1;
             System.out.format("%d. %s, %d, %b %n", number, name, age, married);
         }
 
+        System.out.println();
         return peopleList;
     }
 
@@ -114,11 +117,36 @@ public class PeopleData {
             String detailName = peopleDetail.getName();
             int detailAge = peopleDetail.getAge();
             boolean detailMarried = peopleDetail.isMarried();
-
+            
+            System.out.println("===============");
             number += 1;
             System.out.format("%d. %s, %d, %b %n", number, detailName, detailAge, detailMarried);
         }
 
+        System.out.println();
+        return peopleList;
+    }
+
+    public static List<People> searchPeopleByName(List<People> peopleList, String search) {
+        System.out.println(search);
+        int number = 0;
+        List<People> newPeopleList = new ArrayList<>();
+        for (People people : peopleList) {
+            if (people.getName().contains(search)) {
+                newPeopleList.add(people);
+            }
+        }
+
+
+        for (People peopleDetail : newPeopleList) {
+            String detailName = peopleDetail.getName();
+            int detailAge = peopleDetail.getAge();
+            boolean detailMarried = peopleDetail.isMarried();
+            
+            System.out.println("===============");
+            number += 1;
+            System.out.format("%d. %s, %d, %b %n", number, detailName, detailAge, detailMarried);
+        }
 
         return peopleList;
     }
